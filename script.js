@@ -1,30 +1,30 @@
-const uploadLogo = document.getElementById("uploadLogo");
-const colorButtons = document.querySelectorAll(".color-btn");
+const fileInput = document.getElementById("fileInput");
+const logo = document.getElementById("logoUsuario");
+const playera = document.getElementById("playeraBase");
 
-// Subir logo
-uploadLogo.addEventListener("change", function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
+fileInput.addEventListener("change", function(){
+    const file = this.files[0];
+    const reader = new FileReader();
 
-  const reader = new FileReader();
-  reader.onload = function(event) {
-    const logos = document.querySelectorAll(".logo");
-    logos.forEach(logo => {
-      logo.src = event.target.result;
-      logo.style.display = "block";
-    });
-  };
-  reader.readAsDataURL(file);
+    reader.onload = function(e){
+        logo.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
 });
 
-// Cambiar color playera
-colorButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const color = btn.dataset.color;
-    const tshirts = document.querySelectorAll(".tshirt img:first-child");
+function cambiarColor(color){
+    if(color === "white"){
+        playera.style.filter = "brightness(1.5)";
+    }
+    if(color === "black"){
+        playera.style.filter = "brightness(0.5)";
+    }
+    if(color === "blue"){
+        playera.style.filter = "hue-rotate(200deg)";
+    }
+    if(color === "red"){
+        playera.style.filter = "hue-rotate(330deg) saturate(2)";
+    }
+}
 
-    tshirts.forEach(tshirt => {
-      tshirt.className = color; // aplica clase del color
-    });
-  });
-});
