@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editor de Playeras</title>
-  <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Playeras</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-  <h1 class="title">Diseña tu Playera</h1>
 
-  <div class="carousel">
-    <div class="item">
-      <div class="tshirt" id="tshirt1">
-        <img src="playera-base.png" alt="Playera Base">
-        <img class="logo" id="logo1" src="" alt="">
-      </div>
-    </div>
-    <div class="item">
-      <div class="tshirt" id="tshirt2">
-        <img src="playera-base.png" alt="Playera Base">
-        <img class="logo" id="logo2" src="" alt="">
-      </div>
-    </div>
-    <div class="item">
-      <div class="tshirt" id="tshirt3">
-        <img src="playera-base.png" alt="Playera Base">
-        <img class="logo" id="logo3" src="" alt="">
-      </div>
-    </div>
-  </div>
+    <h1 class="titulo">Diseña tu Playera</h1>
 
-  <div class="controls">
-    <label>Sube tu logo: </label>
-    <input type="file" id="uploadLogo" accept="image/*">
-
-    <div class="colors">
-      <button class="color-btn" data-color="white">Blanca ⚪</button>
-      <button class="color-btn" data-color="black">Negra ⚫</button>
-      <button class="color-btn" data-color="blue">Azul 🔵</button>
-      <button class="color-btn" data-color="red">Roja 🔴</button>
+    <div class="carousel">
+        <div class="item">
+            <img id="playeraBase" class="playera" src="playera-base.png">
+            <img id="logoUsuario" class="logo" src="">
+        </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <div class="panel">
+        <label>Sube tu logo:</label>
+        <input type="file" id="fileInput">
+
+        <div class="colores">
+            <button onclick="cambiarColor('white')">Blanca</button>
+            <button onclick="cambiarColor('black')">Negra</button>
+            <button onclick="cambiarColor('blue')">Azul</button>
+            <button onclick="cambiarColor('red')">Roja</button>
+        </div>
+    </div>
+
+<script src="script.js"></script>
 </body>
 </html>
